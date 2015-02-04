@@ -54,6 +54,8 @@ end
 
 group :test, :development do
   # Framework
+  gem 'minitest' # See https://github.com/rspec/rspec-rails/issues/1273
+  gem 'test-unit' # See https://github.com/rspec/rspec-rails/issues/1273
   gem 'rspec-rails'
 
   # Matchers/Helpers
@@ -70,13 +72,11 @@ group :test, :development do
   gem 'poltergeist'
 
   # Code coverage
-  gem 'rcov', :platforms => :ruby_18
-  gem 'simplecov', :require => false, :platforms => :ruby_19
+  gem 'simplecov', :require => false
 
   # Console
   gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
 
 group :tools do
