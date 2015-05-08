@@ -48,3 +48,7 @@ config/deploy/*.rb
 
 # simplecov
 /doc/coverage
+
+# Development
+# ==========
+/.idea
