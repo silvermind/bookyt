@@ -126,7 +126,7 @@ gem 'carrierwave'
 gem 'best_in_place'
 
 # PDF generation
-gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
+gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 
 gem 'prawn', '~> 0.12' # API incompatible
@@ -145,7 +145,7 @@ gem 'vesr'
 gem 'pg_search'
 
 # Tagging
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 2.4.1' # API incompatible
 
 # Plugins
 # =======
