@@ -20,7 +20,7 @@ group :assets do
   gem 'compass-rails'
 end
 group :production do
-  gem 'therubyracer'
+  gem 'eye'
 end
 
 gem 'jquery-rails'
