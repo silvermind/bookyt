@@ -33,6 +33,17 @@ group :development do
   gem 'rdoc'
 
   gem 'quiet_assets'
+
+  #####################################################
+  # Capistrano Deployment
+  #####################################################
+
+  gem 'capistrano'#, '~> 3.4.0' # deployment
+  gem 'capistrano-bundler', require: false # deployment bundler hooks
+  gem 'capistrano-rails', require: false # deployment rails hooks
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-install'
+
 end
 
 group :test, :development do
@@ -158,13 +169,18 @@ gem 'bookyt_projects'
 # Monitoring
 # ==========
 gem 'settingslogic'
-group :demo do
-  # Traffic
-  gem 'rack-google_analytics'
 
-  # Performance
-  #gem 'newrelic_rpm'
 
-  # Exceptions
-  #gem 'airbrake'
-end
+
+# SILVERMIND EXTENSIONS
+# =====================
+
+# Traffic
+gem 'rack-google_analytics'
+
+# Performance
+gem 'newrelic_rpm'
+
+# Exceptions
+gem 'rollbar'
+
