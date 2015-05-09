@@ -1,8 +1,25 @@
-# Location
-app_path = File.expand_path("../../", __FILE__)
+# Setup paths
+puts "STARTING A UNICORN for Bookyt"
 
-worker_processes 2
-working_directory app_path
+# Location
+
+# app_path = File.expand_path("../../", __FILE__)
+
+if ENV['RACK_ENV'] == 'development'
+  puts "wrong for production!!!!!!!!"
+  #capistrano_root = File.expand_path('tmp')
+  current_path = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+else
+  capistrano_root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
+  current_path = File.join(capistrano_root, 'current')
+end
+
+shared_path = File.join(capistrano_root, 'shared')
+pid_file = File.join(shared_path, 'tmp/pids', 'unicorn.pid')
+
+# Configuration
+worker_processes 5
+timeout 60 # restarts workers that hang for 30 seconds
 
 # This loads the application in the master process before forking
 # worker processes
@@ -10,19 +27,42 @@ working_directory app_path
 # http://unicorn.bogomips.org/Unicorn/Configurator.html
 preload_app true
 
-timeout 120
 
-# This is where we specify the socket.
-# We will point the upstream Nginx module to this socket later on
-listen "#{app_path}/tmp/sockets/unicorn.sock", :backlog => 64
+HttpRequest::DEFAULTS["rack.url_scheme"] = "http"
+HttpRequest::DEFAULTS["HTTPS"] = "off"
+HttpRequest::DEFAULTS["HTTP_X_FORWARDED_PROTO"] = "http"
 
-pid "#{app_path}/tmp/pids/unicorn.pid"
 
-# Set the path of the log files inside the log folder of the testapp
-stderr_path "#{app_path}/log/unicorn.stderr.log"
-stdout_path "#{app_path}/log/unicorn.stdout.log"
+preload_app true # faster worker spawn time and needed for newrelic. http://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
+pid pid_file
+listen File.join(shared_path, 'tmp/sockets', 'unicorn.sock'), :backlog => 1024 # default = 1024
+working_directory current_path
 
+stderr_path File.join(shared_path, 'log', 'unicorn.stderr.log')
+stdout_path File.join(shared_path, 'log', 'unicorn.stdout.log')
+
+
+# Hack ?
+
+  ##
+  # When sent a USR2, Unicorn will suffix its pidfile with .oldbin and
+  # immediately start loading up a new version of itself (loaded with a new
+  # version of our app). When this new Unicorn is completely loaded
+  # it will begin spawning workers. The first worker spawned will check to
+  # see if an .oldbin pidfile exists. If so, this means we've just booted up
+  # a new Unicorn and need to tell the old one that it can now die. To do so
+  # we send it a QUIT.
+  #
+  # Using this method we get 0 downtime deploys.
+
+
+
+# Zero downtime deployment
+# Kill old process as the new finished spinning up
 before_fork do |server, worker|
+
+  puts "before_fork UNICORN for Bookyt"
+
   # This option works in together with preload_app true setting
   # What is does is prevent the master process from holding
   # the database connection
@@ -39,7 +79,7 @@ before_fork do |server, worker|
   #
   # Using this method we get 0 downtime deploys.
 
-  old_pid = "#{app_path}/tmp/pids/unicorn.pid.oldbin"
+  old_pid = "#{pid_file}.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
