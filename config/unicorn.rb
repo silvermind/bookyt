@@ -3,20 +3,15 @@ puts "STARTING A UNICORN for Bookyt"
 
 # Location
 
-# app_path = File.expand_path("../../", __FILE__)
+capistrano_root = File.expand_path("../../", __FILE__)
 
 if ENV['RACK_ENV'] == 'development'
   puts "wrong for production!!!!!!!!"
-  #capistrano_root = File.expand_path('tmp')
-  # current_path = File.expand_path(File.join(File.dirname(__FILE__), '..'))
   raise "not supported -> use production ENV"
-else
-  capistrano_root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
-  current_path = File.join(capistrano_root, 'current')
 end
 
-current_path = File.join(app_path, 'current')
-shared_path = File.join(app_path, 'shared')
+current_path = File.join(capistrano_root, 'current')
+shared_path = File.join(capistrano_root, 'shared')
 pid_file = File.join(shared_path, 'tmp/pids', 'unicorn.pid')
 
 # Configuration
