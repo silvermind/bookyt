@@ -3,18 +3,8 @@ puts "STARTING A UNICORN for Bookyt"
 
 # Location
 
-# app_path = File.expand_path("../../", __FILE__)
-
-if ENV['RACK_ENV'] == 'development'
-  puts "wrong for production!!!!!!!!"
-  #capistrano_root = File.expand_path('tmp')
-  current_path = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-else
-  capistrano_root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
-  current_path = File.join(capistrano_root, 'current')
-end
-
-shared_path = File.join(capistrano_root, 'shared')
+app_path = File.expand_path("../../", __FILE__)
+shared_path = File.join(app_path, 'shared')
 pid_file = File.join(shared_path, 'tmp/pids', 'unicorn.pid')
 
 # Configuration
@@ -40,22 +30,6 @@ working_directory current_path
 
 stderr_path File.join(shared_path, 'log', 'unicorn.stderr.log')
 stdout_path File.join(shared_path, 'log', 'unicorn.stdout.log')
-
-
-# Hack ?
-
-  ##
-  # When sent a USR2, Unicorn will suffix its pidfile with .oldbin and
-  # immediately start loading up a new version of itself (loaded with a new
-  # version of our app). When this new Unicorn is completely loaded
-  # it will begin spawning workers. The first worker spawned will check to
-  # see if an .oldbin pidfile exists. If so, this means we've just booted up
-  # a new Unicorn and need to tell the old one that it can now die. To do so
-  # we send it a QUIT.
-  #
-  # Using this method we get 0 downtime deploys.
-
-
 
 # Zero downtime deployment
 # Kill old process as the new finished spinning up
