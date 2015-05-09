@@ -4,6 +4,7 @@ puts "STARTING A UNICORN for Bookyt"
 # Location
 
 app_path = File.expand_path("../../", __FILE__)
+current_path = File.join(app_path, 'current')
 shared_path = File.join(app_path, 'shared')
 pid_file = File.join(shared_path, 'tmp/pids', 'unicorn.pid')
 
