@@ -19,7 +19,8 @@ require 'capistrano/rbenv'
 require 'capistrano/rbenv_install'
 require 'capistrano/bundler'
 
-require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
+# require 'capistrano/rails/assets'
 
 # Deploy Pings
 require 'rollbar/capistrano3'
