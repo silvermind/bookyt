@@ -4,7 +4,6 @@ lock '3.4.0'
 set :application, 'silvermind_bookyt'
 
 set :repo_url, "git@github.com:silvermind/bookyt.git"
-set :branch, "master_silvermind"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
