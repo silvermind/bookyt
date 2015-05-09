@@ -3,16 +3,27 @@ puts "STARTING A UNICORN for Bookyt"
 
 # Location
 
-capistrano_root = File.expand_path("../../", __FILE__)
+# bugged capistrano_root = File.expand_path("../../", __FILE__)
 
 if ENV['RACK_ENV'] == 'development'
   puts "wrong for production!!!!!!!!"
   raise "not supported -> use production ENV"
 end
 
+capistrano_root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
 current_path = File.join(capistrano_root, 'current')
 shared_path = File.join(capistrano_root, 'shared')
 pid_file = File.join(shared_path, 'tmp/pids', 'unicorn.pid')
+socket_path = File.join(shared_path, 'tmp/sockets', 'unicorn.sock')
+
+puts "", "UNICORN CONFIG in Context"
+puts "ENV['RACK_ENV']", ENV['RACK_ENV']
+puts "ENV['RAILS_ENV']", ENV['RAILS_ENV']
+puts "capistrano_root: #{capistrano_root}"
+puts "current_path: #{current_path}"
+puts "shared_path: #{shared_path}"
+puts "pid_file: #{pid_file}"
+puts "socket_path: #{socket_path}", ""
 
 # Configuration
 worker_processes 5
@@ -32,7 +43,7 @@ HttpRequest::DEFAULTS["HTTP_X_FORWARDED_PROTO"] = "http"
 
 preload_app true # faster worker spawn time and needed for newrelic. http://newrelic.com/docs/troubleshooting/im-using-unicorn-and-i-dont-see-any-data
 pid pid_file
-listen File.join(shared_path, 'tmp/sockets', 'unicorn.sock'), :backlog => 1024 # default = 1024
+listen socket_path, :backlog => 1024 # default = 1024
 working_directory current_path
 
 stderr_path File.join(shared_path, 'log', 'unicorn.stderr.log')
