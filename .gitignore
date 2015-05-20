@@ -44,7 +44,7 @@ uploads/
 tmp/rspec_guard_result
 
 # capistrano
-config/deploy/*.rb
+# config/deploy/*.rb
 
 # simplecov
 /doc/coverage
