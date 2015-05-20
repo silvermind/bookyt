@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/silvermind/has_accounts_engine.git
-  revision: 5cbfa0c77d85f4cb14aa1de5d0a1f04ffe318a7f
+  revision: 5a6a8d647ea18d10e2180767cfb5c4aa1053f1ab
   specs:
     has_accounts_engine (3.0.0.beta5)
       acts-as-taggable-on
