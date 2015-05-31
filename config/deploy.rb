@@ -26,10 +26,13 @@ set :repo_url, "git@github.com:silvermind/bookyt.git"
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/secrets.yml config/database.yml')
-set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/newrelic.yml')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/sitemaps','public/sites', 'public/uploads')
+
+# Bookyt AttachmentUploader Files
+set :linked_dirs, fetch(:linked_dirs, []).push('uploads')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
