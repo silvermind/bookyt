@@ -375,7 +375,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
     sigar (0.7.3)
-    simple-navigation (4.0.3)
+    simple-navigation (3.13.0)
       activesupport (>= 2.3.2)
     simple_form (2.1.2)
       actionpack (~> 3.0)
@@ -502,7 +502,7 @@ DEPENDENCIES
   settingslogic
   shoulda-matchers
   show_for
-  simple-navigation
+  simple-navigation (= 3.13.0)
   simple_form
   sprockets
   uglifier

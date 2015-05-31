@@ -74,7 +74,7 @@ end
 gem 'haml-rails'
 
 # Navigation
-gem 'simple-navigation'
+gem 'simple-navigation', '3.13.0' # item without url do not work properly, also affects all plugins
 
 # Styling
 gem 'lyb_sidebar'
