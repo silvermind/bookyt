@@ -23,7 +23,6 @@ class Invoice < ActiveRecord::Base
     return "" if amount.nil?
 
     identifier = title
-    identifier += " / #{code}" if code.present?
 
     case format
       when :reference
@@ -158,6 +157,10 @@ class Invoice < ActiveRecord::Base
 
   def self.direct_account
     balance_account
+  end
+
+  def self.balance_account
+    nil # will be overloaded by subclass
   end
 
   def balance_account

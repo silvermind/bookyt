@@ -4,6 +4,12 @@ class DebitInvoicesController < InvoicesController
   # Actions
   def new
     # Allow pre-seeding some parameters
+    text = t('letters.debit_invoice.closing')
+    text += "\n\n" + t('letters.debit_invoice.greetings')
+    text += "\n" + current_user.person.vcard.full_name
+    text += "\n" + contact.to_s(:label) if contact = current_user.person.vcard.contacts.first
+    text += "\n"*3
+
     # TODO: If current_tenant has no assigned company this won't fail, but the
     # input field is not show either.
     invoice_params = {
@@ -11,7 +17,8 @@ class DebitInvoicesController < InvoicesController
       :state      => 'booked',
       :value_date => Date.today,
       :due_date   => Date.today.in(current_tenant.payment_period.days).to_date,
-      :title      => "Rechnung Nr."
+      :title      => "Rechnung Nr.",
+      :text       => text
     }
 
     # Set default parameters
@@ -40,15 +47,5 @@ class DebitInvoicesController < InvoicesController
     end
 
     new!
-  end
-
-  def create
-    invoice_params = {}
-
-    invoice_params.merge!(params[:debit_invoice]) if params[:debit_invoice]
-
-    @debit_invoice = DebitInvoice.new(invoice_params)
-
-    create!
   end
 end

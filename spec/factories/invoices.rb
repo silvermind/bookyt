@@ -9,7 +9,4 @@ FactoryGirl.define do
     state "new"
     title "New Invoice"
   end
-
-  factory :credit_invoice do
-  end
 end

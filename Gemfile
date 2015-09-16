@@ -1,6 +1,6 @@
 # Settings
 # ========
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Rails
 # =====
@@ -48,6 +48,7 @@ end
 
 group :test, :development do
   # Framework
+  gem 'test-unit'
   gem 'rspec-rails'
 
   # Matchers/Helpers
@@ -67,6 +68,9 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
+
+  gem 'rspec-its'
+  gem 'rspec-activemodel-mocks'
 end
 
 # Standard helpers
@@ -126,8 +130,7 @@ gem 'ledermann-rails-settings'
 # ======
 # Accounting
 gem 'has_accounts'
-#gem 'has_accounts_engine', '~> 3.0.0.beta5'
-gem 'has_accounts_engine', github:"silvermind/has_accounts_engine" #, '~> 3.0.0.beta5'
+gem 'has_accounts_engine', '3.0.0.beta10'
 
 # Addresses
 gem 'has_vcards'
@@ -151,7 +154,7 @@ gem 'csv-mapper'
 gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :require => 'mt940'
 
 # ESR support
-gem 'aasm', '~> 3.0' # API incompatible
+gem 'aasm'
 gem 'vesr'
 
 # Search

@@ -21,6 +21,9 @@ Bookyt::Application.routes.draw do
     post "load_template" => "setup#load_template"
   end
 
+  # static pages
+  get 'imprint' => 'static_pages#imprint'
+
   # Authorization
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
@@ -42,7 +45,7 @@ Bookyt::Application.routes.draw do
   resources :account_types
   resources :banks
 
-  resources :tenants do
+  resources :tenants, only: [:show, :update] do
     member do
       get :balance_sheet, :profit_sheet
     end
@@ -160,17 +163,6 @@ Bookyt::Application.routes.draw do
   get "expenses/new_vat" => "expenses#new_vat", :as => :new_vat_expense
   post "expenses" => "expenses#create", :as => :create_expense
 
-  # Bookings
-  resources :bookings do
-    collection do
-      post :select
-      get :simple_edit
-    end
-    member do
-      get :select_booking
-      get :copy
-    end
-  end
   resources :bookings_batch_edit, :only => [:index, :update]
 
   resources :direct_bookings

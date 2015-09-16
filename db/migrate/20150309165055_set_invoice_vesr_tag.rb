@@ -4,10 +4,9 @@ class SetInvoiceVesrTag < ActiveRecord::Migration
 
     account = BankAccount.find_by_code('1020')
     if account
-    account.tag_list << 'invoice:vesr'
-    account.save!
-    else
-      puts  "BankAccount.find_by_code('1020') - not found during migration !!"
+      account.tag_list << 'invoice:vesr'
+      account.save!
+      logger.info "Added tag 'invoice:vesr' to Bank Account with code '1020'"
     end
   end
 end
