@@ -167,7 +167,7 @@ gem 'acts-as-taggable-on', '~> 2.4.1' # API incompatible
 # =======
 # Uncomment to enable plugins
 gem 'bookyt_pos'
-gem 'bookyt_salary'
+gem 'bookyt_salary', :require => 'bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
 
