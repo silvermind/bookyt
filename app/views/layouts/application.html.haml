@@ -6,7 +6,10 @@
 
     = stylesheet_link_tag 'application', :media => 'all'
     = stylesheet_link_tag 'print', :media => 'print'
-    = engine_stylesheet_link_tag :media => 'screen, projection, print'
+
+    -# TODO reenable broken assets from Plugins !! Atm they are added to the base application.css
+    -#= engine_stylesheet_link_tag :media => 'screen, projection, print'
+
     = javascript_include_tag "application"
 
     = csrf_meta_tag
