@@ -9,7 +9,7 @@ set :rails_env, "production"
 
 server 'online-buha.ch', user: 'silvermind_bookyt', roles: %w{app db web}
 
-set :rbenv_ruby, '2.1.6'
+set :rbenv_ruby, '2.2.2'
 set :rbenv_type, :user #:user or :system, depends on your rbenv setup
 set :rbenv_map_bins, %w{rake gem bundle ruby rails unicorn eye}
 
