@@ -46,9 +46,11 @@ group :development do
 
 end
 
+# Hack without production console is not working !!
+gem 'test-unit'
+
 group :test, :development do
   # Framework
-  gem 'test-unit'
   gem 'rspec-rails'
 
   # Matchers/Helpers
