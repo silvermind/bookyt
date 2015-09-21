@@ -2,11 +2,7 @@
 module ApplicationHelper
   # Plugins
   def engine_stylesheet_link_tag(options = {})
-    puts "Tenant: #{Tenant.first.inspect}"
-    puts "Bookyt::Engine.engines in Context: #{Bookyt::Engine.engines}"
-
     Bookyt::Engine.engines.map {|engine|
-      puts "engine: #{engine} assets for options: #{options}"
       stylesheet_link_tag engine, options
     }.join.html_safe
   end

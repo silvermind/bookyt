@@ -14,9 +14,6 @@ module Bookyt
     end
 
     def self.setup_navigation_engine(navigation, item, name)
-      puts "Name: #{name}"
-      puts "Class: #{name.camelize.constantize::Navigation}"
-
       navigation.class.send :include, name.camelize.constantize::Navigation
       navigation.send("setup_#{name}", item)
     end
