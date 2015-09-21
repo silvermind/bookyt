@@ -20,7 +20,7 @@ group :assets do
   gem 'compass-rails'
 end
 group :production do
-  gem 'eye'
+  gem "eye", '0.8.pre' # based on celluloid 0.16.x
 end
 
 gem 'jquery-rails'
