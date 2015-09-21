@@ -48,7 +48,7 @@ end
 
 group :test, :development do
   # Framework
-  # gem 'test-unit'
+  gem 'test-unit'
   gem 'rspec-rails'
 
   # Matchers/Helpers
