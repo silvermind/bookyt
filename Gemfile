@@ -169,7 +169,7 @@ gem 'acts-as-taggable-on', '~> 2.4.1' # API incompatible
 # =======
 # Uncomment to enable plugins
 gem 'bookyt_pos'
-gem 'bookyt_salary'
+gem 'bookyt_salary', :git => "git@github.com:silvermind/bookyt_salary.git"
 gem 'bookyt_stock'
 gem 'bookyt_projects'
 

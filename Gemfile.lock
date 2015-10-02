@@ -1,4 +1,12 @@
 GIT
+  remote: git@github.com:silvermind/bookyt_salary.git
+  revision: cd23a0b1653b8188cc57c8963ff9a34fcae788a7
+  specs:
+    bookyt_salary (0.23.0)
+      rails (~> 3.1)
+      recurrence
+
+GIT
   remote: http://github.com/CyTeam/mt940_parser.git
   revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
   specs:
@@ -63,9 +71,6 @@ GEM
       railties (>= 3.2)
     bookyt_pos (0.2.0)
     bookyt_projects (1.1.1)
-      rails (~> 3.1)
-      recurrence
-    bookyt_salary (0.23.0)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.6.0)
@@ -512,7 +517,7 @@ DEPENDENCIES
   best_in_place
   bookyt_pos
   bookyt_projects
-  bookyt_salary
+  bookyt_salary!
   bookyt_stock
   bootstrap-datepicker-rails
   bootstrap-will_paginate
