@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/silvermind/has_accounts_engine.git
-  revision: 744d8bfaae830692a9a7a9e442e10a7222bd80fe
+  revision: 8dd9e4a4a24919a7b0c607a67fa60bf63bd06add
   specs:
     has_accounts_engine (3.0.0.beta11)
       acts-as-taggable-on
@@ -544,7 +544,7 @@ DEPENDENCIES
   faraday
   haml-rails
   has_accounts
-  has_accounts_engine (= 3.0.0.beta11)!
+  has_accounts_engine!
   has_scope
   has_vcards
   i18n_rails_helpers
