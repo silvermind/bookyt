@@ -1,4 +1,20 @@
 GIT
+  remote: git://github.com/silvermind/has_accounts_engine.git
+  revision: f5119af8ee19e0e917dd549121589f56654ed279
+  specs:
+    has_accounts_engine (3.0.0.beta10)
+      acts-as-taggable-on
+      anjlab-bootstrap-rails (~> 2.1.0)
+      has_accounts (~> 3.0.0.beta0)
+      has_scope
+      has_vcards
+      i18n_rails_helpers
+      inherited_resources
+      rails (~> 3.2)
+      simple_form
+      validates_timeliness
+
+GIT
   remote: git@github.com:silvermind/bookyt_salary.git
   revision: cd23a0b1653b8188cc57c8963ff9a34fcae788a7
   specs:
@@ -220,7 +236,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     ffi (1.9.6)
-    haml (4.0.6)
+    haml (4.0.7)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -229,17 +245,6 @@ GEM
       railties (>= 3.1, < 4.1)
     has_accounts (3.0.0.beta1)
       rails (~> 3.1)
-      validates_timeliness
-    has_accounts_engine (3.0.0.beta10)
-      acts-as-taggable-on
-      anjlab-bootstrap-rails (~> 2.1.0)
-      has_accounts (~> 3.0.0.beta0)
-      has_scope
-      has_vcards
-      i18n_rails_helpers
-      inherited_resources
-      rails (~> 3.2)
-      simple_form
       validates_timeliness
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
@@ -355,7 +360,7 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.4.7)
-    rack-cache (1.2)
+    rack-cache (1.5.0)
       rack (>= 0.4)
     rack-google_analytics (1.0.2)
       rack
@@ -427,7 +432,7 @@ GEM
     rspec-support (3.2.2)
     ruby-rc4 (0.1.5)
     rubyzip (1.1.7)
-    sass (3.4.15)
+    sass (3.4.18)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -473,7 +478,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    tzinfo (0.3.44)
+    tzinfo (0.3.45)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -539,7 +544,7 @@ DEPENDENCIES
   faraday
   haml-rails
   has_accounts
-  has_accounts_engine (= 3.0.0.beta10)
+  has_accounts_engine (= 3.0.0.beta10)!
   has_scope
   has_vcards
   i18n_rails_helpers
