@@ -7,7 +7,7 @@ set :rails_env, "production"
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server 'online-buha.ch', user: 'silvermind_bookyt', roles: %w{app db web}
+server 'online-buha.ch:2222', user: 'silvermind_bookyt', roles: %w{app db web}
 
 set :rbenv_ruby, '2.2.2'
 set :rbenv_type, :user #:user or :system, depends on your rbenv setup
