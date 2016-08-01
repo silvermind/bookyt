@@ -17,6 +17,7 @@ GIT
 GIT
   remote: git@github.com:silvermind/bookyt_salary.git
   revision: 8fa6617885b7bc9b90557ca4a7341ea38ff1127b
+  ref: 8fa6617885b7bc9b90557ca4a7341ea38ff1127b
   specs:
     bookyt_salary (0.23.0)
       rails (~> 3.1)
