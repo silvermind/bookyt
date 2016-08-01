@@ -307,7 +307,6 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
-    oj (2.12.14)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
@@ -397,8 +396,8 @@ GEM
     remotipart (1.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rollbar (2.3.0)
-      oj (~> 2.12.14)
+    rollbar (2.12.0)
+      multi_json
     routing-filter (0.4.0.1)
       actionpack (< 4.2)
     rspec (3.2.0)
